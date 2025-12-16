@@ -1,15 +1,20 @@
 
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, MotionValue, useSpring, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+function useParallax(value: MotionValue<number>, distance: number) {
+    return useTransform(value, [0, 1], [0, distance]);
+}
+
 
 
 const HeroParallax = () => {
     const ref = useRef(null);
     const { scrollY } = useScroll();
-    const y = useTransform(scrollY, [0, 500], [0, 200]);
+    const y = useParallax(scrollY, 200);
     const navigate = useNavigate();
 
     return (
@@ -48,6 +53,7 @@ const HeroParallax = () => {
                     loop
                     muted
                     playsInline
+                    disablePictureInPicture
                     style={{
                         width: '100vw',
                         height: '100dvh',
@@ -72,11 +78,15 @@ const HeroParallax = () => {
                     width: '100%',
                 }}
             >
-                <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
-                    Bienvenido a TunningCave
-                </Typography>
+                <motion.h2 
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    style={{y}}>
+                    Tunning Cave
+                </motion.h2>
                 <Typography variant="h5" gutterBottom>
-                    La mejor comunidad para los amantes del tuning automotriz
+                    Donde el Tunning y el detallado se convierten en Arte Automotriz
                 </Typography>
                 <Button
                     variant="contained"

@@ -5,6 +5,7 @@ import CssBaseline from '@mui/joy/CssBaseline';
 import IconButton from '@mui/joy/IconButton';
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
+import './WebFrameX.css';
 
 function ColorSchemeToggle() {
   const { mode, setMode } = useColorScheme();
@@ -44,23 +45,7 @@ function ColorSchemeToggle() {
 
 
 const WebBlock = ({ children }: { children: React.ReactNode }) => (
-  <Box
-    sx={{
-      minHeight: '100vh',
-      minWidth: '100vw',
-      width: '100vw',
-      height: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'stretch',
-      justifyContent: 'stretch',
-      scrollSnapAlign: 'start',
-      p: 0,
-      m: 0,
-      bgcolor: 'background.body',
-      border: 0,
-    }}
-  >
+  <Box className="web-block">
     {children}
   </Box>
 );
@@ -69,12 +54,9 @@ export default function WebFrameX() {
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
-      <ColorSchemeToggle />
-      <Box
+      
+      <Box className="web-box"
         sx={{
-          height: '100vh',
-          overflowY: 'scroll',
-          scrollSnapType: 'y mandatory',
           '& > div': {
             scrollSnapAlign: 'start',
           },

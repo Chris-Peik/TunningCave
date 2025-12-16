@@ -7,7 +7,6 @@ import AppAppBar from './components/AppAppBar.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppAppBar />
     <App />
   </StrictMode>
 );

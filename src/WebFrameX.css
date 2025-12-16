@@ -1,0 +1,25 @@
+.web-block {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    scroll-snap-align: start;
+    padding: 0;
+    margin: 0;
+    background-color: 'background.body';
+    border: 0;
+}
+
+.web-box {
+
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    left: 0;
+    top: 0;
+    position: fixed;
+    
+    }
